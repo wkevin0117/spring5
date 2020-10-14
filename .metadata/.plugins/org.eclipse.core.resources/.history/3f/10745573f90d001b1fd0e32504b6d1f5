@@ -1,0 +1,39 @@
+package lab5.ex1;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+import com.sun.javafx.fxml.expression.Expression;
+
+public class ProductDaoHibernateImpl extends HibernateDaoSupport implements ProductDao {
+
+	@Override
+	public Product getProduct(int id) {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().execute(new HibernateCallback() {
+			public Object doInHibernate(Session session) throws HibernateException{
+				return session.createCriteria(Product.class).add(Expression.eq("id", id)).uniqueResult();
+			}
+		});
+		return null;
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		// TODO Auto-generated method stub
+		
+		return (List<Product>) getHibernateTemplate().find("from Product p");
+	}
+
+	@Override
+	public void save(Product product) {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().saveOrUpdate(product);
+
+	}
+
+}

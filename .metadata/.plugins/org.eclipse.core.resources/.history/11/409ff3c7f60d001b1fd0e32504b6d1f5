@@ -1,0 +1,27 @@
+package lab5.ex1;
+
+import java.util.List;
+
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+public class ProductDaoHibernateImpl extends HibernateDaoSupport implements ProductDao {
+
+	@Override
+	public Product getProduct(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(Product product) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
