@@ -12,13 +12,13 @@ public class Test3Client {
 				"lab3/ex2/beans-config.xml");
 		ProductDao productDao = (ProductDao) context.getBean("productDao");
 
-		//List<Product> list = productDao.getProducts();
-		//for (Product p : list) {
-		//	System.out.println(p);
-		//}
+		List<Product> list = productDao.getProducts();
+		for (Product p : list) {
+			System.out.println(p);
+		}
 
-		//Product p = productDao.getProduct(1);
-		//System.out.println(p);
+		Product p = productDao.getProduct(2);
+		System.out.println(p);
 
 	}
 

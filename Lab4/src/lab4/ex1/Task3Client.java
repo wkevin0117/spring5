@@ -14,8 +14,20 @@ public class Task3Client {
 				"lab4/ex1/beans-config.xml");
 		ProductDao productDao = (ProductDao) context.getBean("productDao");
 		// Append your code here
-		
-		
+		PlatformTransactionManager txManager = (PlatformTransactionManager) context.getBean("txManager");
+		TransactionDefinition txDef = new DefaultTransactionDefinition();
+		TransactionStatus txStatus = txManager.getTransaction(txDef);
+		try{
+			Product p = productDao.getProduct(1);
+			p.setName("dog3");
+			productDao.update(p);
+			raiseException();
+
+			txManager.commit(txStatus);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			txManager.rollback(txStatus);
+		}
 	}
 
 	private static void raiseException() {

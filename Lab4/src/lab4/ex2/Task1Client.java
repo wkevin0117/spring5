@@ -10,6 +10,6 @@ public class Task1Client {
 				"lab4/ex2/beans-config.xml");
 		TxProductService txService = (TxProductService) context
 				.getBean("txService");
-		//txService.testTx();
+		txService.testTx();
 	}
 }

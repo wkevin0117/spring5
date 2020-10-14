@@ -1,0 +1,19 @@
+INDEX VERSION 1.130+C:\lab-practice\.metadata\.plugins\org.eclipse.jdt.core
+2768476762.index
+3602136311.index
+3580456661.index
+2915351093.index
+1007340512.index
+1061051347.index
+3010265783.index
+1460105046.index
+295561202.index
+1734833273.index
+3403375685.index
+2823550337.index
+1259207542.index
+1572736037.index
+2326595075.index
+2756011639.index
+1959444282.index
+1155977850.index

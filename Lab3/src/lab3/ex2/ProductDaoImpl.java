@@ -11,4 +11,43 @@ import org.springframework.jdbc.support.KeyHolder;
 public class ProductDaoImpl extends NamedParameterJdbcDaoSupport implements
 		ProductDao {
 
+	private ProductRowMapper productRowMapper;
+
+	@Override
+	public Product getProduct(int id) {
+		// TODO Auto-generated method stub
+		SqlParameterSource namedParameters = new MapSqlParameterSource("productId", id);
+		return (Product) getNamedParameterJdbcTemplate().queryForObject(
+				"select * from product where id = :productId", namedParameters, productRowMapper);
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return (List<Product>) getJdbcTemplate().query("select * from product", productRowMapper);
+	}
+	
+	public void setProductRowMapper(ProductRowMapper productRowMapper){
+		this.productRowMapper = productRowMapper;
+	}
+
+	@Override
+	public int insert(Product product) {
+		// TODO Auto-generated method stub
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		SqlParameterSource params = new MapSqlParameterSource("name", product.getName()).addValue("desc", product.getDescription());
+		getNamedParameterJdbcTemplate().update("insert into product (`name`, `desc`) values (:name, :desc)", params, keyHolder);
+		return keyHolder.getKey().intValue();
+	}
+
+	@Override
+	public void update(Product product) {
+		// TODO Auto-generated method stub
+		SqlParameterSource params = new MapSqlParameterSource("id", product.getProductId())
+				.addValue("name", product.getName())
+				.addValue("desc", product.getDescription());
+		getNamedParameterJdbcTemplate().update("update product set product.name = :name, product.desc = :desc where product.id = :id", params);
+		
+	}
+
 }

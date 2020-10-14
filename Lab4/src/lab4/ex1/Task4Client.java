@@ -14,6 +14,18 @@ public class Task4Client {
 		final ProductDao productDao = (ProductDao) context
 				.getBean("productDao");
 		// 在下面加入程式碼
+		TransactionTemplate txTemplate = (TransactionTemplate) context.getBean("txTemplate");
+		
+		txTemplate.execute(new TransactionCallback() {
+			@Override
+			public Object doInTransaction(TransactionStatus status){
+				Product p = productDao.getProduct(1);
+				p.setName("dog3");
+				productDao.update(p);
+				raiseException();
+				return p;
+			}
+		});
 
 	}
 

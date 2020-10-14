@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.core.io.Resource"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="jdk.management.resource.internal.inst.SocketOutputStreamRMHooks"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.ProceedingJoinPoint"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.annotation.Around"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.support.GeneratedKeyHolder"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.SqlParameterSource"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.core.namedparam.MapSqlParameterSource"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.support.KeyHolder"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
+</qualifiedTypeNameHistroy>

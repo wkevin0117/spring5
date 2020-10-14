@@ -1,0 +1,32 @@
+package lab3.ex2;
+
+import java.util.List;
+
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+
+public class ProductDaoImpl extends NamedParameterJdbcDaoSupport implements
+		ProductDao {
+
+	private ProductRowMapper productRowMapper;
+
+	@Override
+	public Product getProduct(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public void setProductRowMapper(ProductRowMapper productRowMapper){
+		this.productRowMapper = productRowMapper;
+	}
+
+}

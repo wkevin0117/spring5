@@ -12,6 +12,7 @@ public class Task3Client {
 		// 請在下方寫作一段程式碼，取得DataSource的實體，
 		// 並印出任意屬性值，以測試資料庫是否連通。
 		//
+		Product p = new Product();
 	}
 
 }

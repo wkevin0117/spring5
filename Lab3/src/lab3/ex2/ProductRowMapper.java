@@ -9,7 +9,11 @@ public class ProductRowMapper implements RowMapper {
 
 	public Object mapRow(ResultSet rs, int rowCount) throws SQLException {
 		
-		return null;
+		Product product = new Product();
+		product.setProductId(rs.getInt("id"));
+		product.setDescription(rs.getString("desc"));
+		product.setName(rs.getString("name"));
+		return product;
 	}
 
 }
