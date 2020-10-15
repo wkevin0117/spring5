@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="C:\SpringFramework\lib\hibernate-release-5.2.10.Final\lib\required" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="C:\lab-practice\lab8\lib" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="480,510" key="UserLibraryLoadSaveDialog.size"/>
 	<section name="SelfEncapsulateFieldWizard">
 		<item value="false" key="GenerateJavadoc"/>

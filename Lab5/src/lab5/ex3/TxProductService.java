@@ -26,7 +26,7 @@ public class TxProductService {
 	}
 
 	private static void raiseException() {
-		throw new RuntimeException();
+		throw new RuntimeException("Save fail!");
 	}
 
 	public void setProductDao(ProductDao productDao) {

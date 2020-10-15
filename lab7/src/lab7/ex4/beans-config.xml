@@ -20,5 +20,13 @@
 	</bean>
 
 	<!-- add your config here -->
+	<bean id="myMDP" class="lab7.ex4.MyMessasgeDrivenPojo" />
+	<bean id="mdpContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="concurrentConsumers" value="1" />
+		<property name="connectionFactory" ref="jmsFactory" />
+		<property name="destination" ref="myTopic" />
+		<property name="messageListener" ref="myMDP" />
+	</bean>
+	
 </beans>
 

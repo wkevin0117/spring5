@@ -6,5 +6,51 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<!-- add your config here -->
-
+	<bean id="myMesssage" class="lab8.ex2.MyMessage">
+		<property name="content" value="Hello Quartz!"/>
+	</bean>
+	<bean id="myMesssage2" class="lab8.ex2.MyMessage">
+		<property name="content" value="Hello Quartz 2!"/>
+	</bean>
+	
+	<bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="lab8.ex2.MyQuartzJobBean"/>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="myMessage" value-ref="myMesssage"/>
+				<entry key="myValue" value="3"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="jobDetail2" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="lab8.ex2.MyQuartzJobBean"/>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="myMessage" value-ref="myMesssage2"/>
+				<entry key="myValue" value="3"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail"/>
+		<property name="startDelay" value="1000"/>
+		<property name="repeatInterval" value="3000"/>	
+	</bean>
+	
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="simpleTrigger"/>
+				<ref bean="cronTrigger"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail2"/>
+		<property name="cronExpression" value="0/5 * * * * ?"/>
+	</bean>
+	
 </beans>

@@ -25,7 +25,7 @@ public class ProductDaoHibernateImpl extends HibernateDaoSupport implements Prod
 	public List<Product> getProducts() {
 		// TODO Auto-generated method stub
 		
-		return (List<Product>) getHibernateTemplate().find("from Product p");
+		return (List<Product>) getHibernateTemplate().find("from Product");
 	}
 
 	@Override
