@@ -10,7 +10,12 @@ public class Client {
 				"lab5/ex3/beans-config.xml");
 		TxProductService txService = (TxProductService) context
 				.getBean("txService");
+		try{
 		txService.testTx();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		txService.show();
 
 	}
 

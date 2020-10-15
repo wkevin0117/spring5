@@ -7,17 +7,16 @@
 	                    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
 	                    ">
 	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		destroy-method="close">
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/springdb" />
+			value="jdbc:mysql://localhost:3306/springdb2" />
 		<property name="username" value="root" />
 		<property name="password" value="springframework" />
 	</bean>
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
@@ -28,6 +27,7 @@
 			<value>
 				hibernate.dialect=org.hibernate.dialect.MySQLDialect
 				hibernate.show_sql=true
+				hibernate.format_sql=true
 			</value>
 		</property>
 	</bean>
@@ -40,5 +40,11 @@
 		<property name="productDao" ref="productDao" />
 	</bean>
 
+	
+	<bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="txManager"/>
 	
 </beans>

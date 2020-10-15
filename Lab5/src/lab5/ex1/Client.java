@@ -18,6 +18,9 @@ public class Client {
 		productDao.save(product1);
 		
 		List<Product> list = productDao.getProducts();
+		for (Product product : list) {
+			System.out.println(product.getName());
+		}
 	}
 
 }

@@ -1,5 +1,7 @@
 package lab5.ex3;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,11 +10,19 @@ public class TxProductService {
 
 	private ProductDao productDao;
 	
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
 	public void testTx() {
 		Product p = productDao.getProduct(1);
 		p.setName("myname");
 		productDao.save(p);
-		raiseException();
+		//raiseException();
+	}
+	
+	public void show(){		
+		List<Product> list = productDao.getProducts();
+		for (Product product : list) {
+			System.out.println(product.getName());
+		}
 	}
 
 	private static void raiseException() {
