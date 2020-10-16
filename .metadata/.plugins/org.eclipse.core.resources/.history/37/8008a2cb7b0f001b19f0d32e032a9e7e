@@ -1,0 +1,5 @@
+package gov.vghtpe.model;
+
+public class Student {
+
+}
