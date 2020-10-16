@@ -1,0 +1,10 @@
+package lab7.ex4;
+
+public class MdpContainer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
